@@ -2,6 +2,7 @@
 # @Time    : 2018-9-21 10:06
 # @Author  : xylon
 import torch
+import pickle
 
 from model.rf_net_module import RFNetModule
 from utils.net_utils import pair
@@ -214,5 +215,9 @@ class RFNetSO(RFNetModule):
 
         # inference
         _, kp, des = self.inference(img, img_info, img_raw)
+
+        with open('keys.txt', 'wb') as f:
+            pickle.dump(kp, f, -1)
+            pickle.dump(des, f, -1)
 
         return kp, des, img
