@@ -216,8 +216,6 @@ class RFNetSO(RFNetModule):
         # inference
         _, kp, des = self.inference(img, img_info, img_raw)
 
-        with open('keys.txt', 'wb') as f:
-            pickle.dump(kp, f, -1)
-            pickle.dump(des, f, -1)
+
 
         return kp, des, img
